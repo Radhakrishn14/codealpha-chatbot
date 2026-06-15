@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro-Lab AI Engine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="lab-chassis">
+
+    <!-- LEFT ZONE: HYDRAULIC ENGINEERING BAY -->
+    <div class="engineering-bay">
+        
+        <!-- 1. INDUSTRIAL MOTOR UNIT -->
+        <div class="motor-unit">
+            <div id="motor-casing" class="motor-casing">
+                <div id="fan" class="fan-blade"></div>
+            </div>
+            
+            <div class="control-deck">
+                <div id="led-screen" class="led-display">STANDBY MODE</div>
+                <button class="btn-start" onclick="startMotor()">
+                    ⚡ ACTIVATE PUMP
+                </button>
+            </div>
+        </div>
+
+        <!-- PIPE A: MOTOR TO TANK -->
+        <div class="pipe pipe-h-1">
+            <div id="input-flow" class="flow-core"></div>
+        </div>
+
+        <!-- 2. GLASS RESERVOIR TANK -->
+        <div class="tank-unit">
+            <div class="glass-casing">
+                <!-- Moving Water -->
+                <div id="water-mass" class="water-mass"></div>
+                
+                <!-- Bubbles -->
+                <div class="bub b1"></div>
+                <div class="bub b2"></div>
+                <div class="bub b3"></div>
+                
+                <!-- Calibration Marks -->
+                <div class="tank-marks">
+                    <span>MAX</span>
+                    <span>75%</span>
+                    <span>50%</span>
+                    <span>25%</span>
+                    <span>LOW</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PIPE B: TANK TO CHAT -->
+        <div class="pipe pipe-h-2">
+            <div id="output-slug" class="slug"></div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT ZONE: CHAT TERMINAL -->
+    <div class="terminal-zone">
+        
+        <div class="brand-header">
+            <div class="brand-title">💧 HYDRO<span>codealpha Chat bot</span></div>
+            <div id="fuel-text" class="gauge-box">LEVEL: 0%</div>
+        </div>
+
+        <div id="chat-box" class="log-screen">
+            <div class="msg-bot">
+                ⚠️ <strong>SYSTEM ALERT:</strong> Hydraulic pressure critically low. 
+                <br>Please activate the Main Pump in the Engineering Bay to begin python data transmission.
+            </div>
+        </div>
+
+        <div class="input-matrix">
+            <input type="text" id="user-input" placeholder="Awaiting python data injection..." autocomplete="off">
+            <button class="btn-send" onclick="transmit()">
+                INJECT
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
