@@ -6,14 +6,12 @@ import nltk
 import string
 
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 
 from rapidfuzz import fuzz
 
 app = Flask(__name__)
 
 # Download NLTK resources
-nltk.download('punkt')
 nltk.download('stopwords')
 
 
@@ -32,7 +30,7 @@ def preprocess(text):
         )
     )
 
-    tokens = word_tokenize(text)
+    tokens = text.split()
 
     stop_words = set(
         stopwords.words('english')
